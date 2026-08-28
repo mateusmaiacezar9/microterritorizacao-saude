@@ -6,7 +6,7 @@ Este projeto nasceu da vivência prática do desenvolvedor na Atenção Básica 
 ### O Problema Operacional
 * **A Falha Geográfica (Google My Maps):** O uso de ferramentas tradicionais de mapas falhava drasticamente na ponta. Um exemplo clássico ocorria na **Rua Ladário, número 600**: o sistema visual do My Maps apontava para a área azul (UBS Monterey), mas na realidade o endereço pertencia à **UBS Oriental**. A imprecisão espacial chegava a **2 quilômetros de desvio**, enviando o paciente para a unidade errada, sobrecarregando equipes incorretas e gerando atritos no atendimento.
 * **A Planilha Frágil (LibreOffice Calc):** Uma tentativa anterior utilizou faixas numéricas de ruas cadastradas em planilha. Contudo, por ser um arquivo editável localmente, o uso incorreto acabava corrompendo fórmulas, exigindo resgates constantes da versão original e gerando dependência técnica contínua.
-* **A Solução Web Atual e o Gargalo:** A migração inicial para uma página web na rede interna travou as edições indevidas, mas a alta rotatividade de pessoal, o redimensionamento de áreas (para equilibrar a população entre os 22 ACSs da UBS Monterey e os 8 de outra unidade) e a dependência do técnico de TI para alterações manuais tornaram-se insustentáveis.
+* **A Solução Web Atual e o Gargalo:** A migração inicial para uma página web na rede interna travou as edições indevidas, mas a alta rotatividade de pessoal, o redimensionamento de áreas (para equilibrar a população entre os Vários ACSs da UBS Monterey e a dependência do técnico de TI para alterações manuais tornaram-se insustentáveis.
 
 ---
 
