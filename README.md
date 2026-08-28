@@ -1,28 +1,28 @@
 # Sistema de Microterritorização e Gestão de Equipes de Saúde (UBS)
 
 ## 📌 Contexto e Justificativa
-Este projeto nasceu de uma necessidade real na gestão da Atenção Básica de Saúde no município de Sarandi, Paraná. O desafio original consistia na validação precisa de endereços de cidadãos para direcioná-los à Equipe de Saúde da Família (ESF) correta, evitando sobrecarga em agendas médicas de certas unidades, esvaziamento em outras e conflitos de agendamento na ponta (recepção e Agentes Comunitários de Saúde).
+Este projeto nasceu da vivência prática do desenvolvedor na manutenção e gestão da Atenção Básica de Saúde no município de Sarandi, Paraná. A necessidade surgiu para solucionar um problema crítico enfrentado diariamente na rotina da **UBS Monterey**: a imprecisão na identificação da unidade e da equipe responsável pelo atendimento do cidadão.
 
-A evolução das ferramentas utilizadas ilustra a jornada de melhoria contínua da aplicação:
-1. **Google My Maps:** Utilizado inicialmente de forma geométrica, porém a imprecisão espacial gerava erros frequentes e divergências no endereçamento.
-2. **Planilha em LibreOffice Calc:** Uma tentativa descentralizada onde faixas numéricas de ruas eram cadastradas. No entanto, por ser um arquivo editável local, o uso incorreto por operadores corrompia fórmulas, exigindo resgates constantes da versão original.
-3. **Aplicação Web Estática (Rede Interna / Windows Server):** Migração para um ambiente web hospedado na intranet para travar edições indevidas. Porém, com alta rotatividade de pessoal e redimensionamentos populacionais frequentes entre as microáreas (somando dezenas de ACSs distribuídos em unidades de saúde), a dependência do setor de TI/manutenção para alterações manuais tornou-se um gargalo operacional.
+### O Problema Operacional
+* **A Falha Geográfica (Google My Maps):** O uso de ferramentas tradicionais de mapas falhava drasticamente na ponta. Um exemplo clássico ocorria na **Rua Ladário, número 600**: o sistema visual do My Maps apontava para a área azul (UBS Monterey), mas na realidade o endereço pertencia à **UBS Oriental**. A imprecisão espacial chegava a **2 quilômetros de desvio**, enviando o paciente para a unidade errada, sobrecarregando equipes incorretas e gerando atritos no atendimento.
+* **A Planilha Frágil (LibreOffice Calc):** Uma tentativa anterior utilizou faixas numéricas de ruas cadastradas em planilha. Contudo, por ser um arquivo editável localmente, o uso incorreto acabava corrompendo fórmulas, exigindo resgates constantes da versão original e gerando dependência técnica contínua.
+* **A Solução Web Atual e o Gargalo:** A migração inicial para uma página web na rede interna travou as edições indevidas, mas a alta rotatividade de pessoal, o redimensionamento de áreas (para equilibrar a população entre os 22 ACSs da UBS Monterey e os 8 de outra unidade) e a dependência do técnico de TI para alterações manuais tornaram-se insustentáveis.
 
 ---
 
 ## 🎯 Objetivo do Projeto
-Desenvolver uma aplicação web centralizada, eficiente e segura para a consulta de microterritorização em unidades básicas de saúde, permitindo:
-- **Consulta Pública e Rápida:** Atendimento ágil para funcionários da recepção e suporte à população.
-- **Gestão Descentralizada por Unidade:** Autonomia para que cada UBS atualize suas próprias faixas de ruas e microáreas de forma controlada.
-- **Segurança da Informação e Privacidade (LGPD):** Proteção dos dados pessoais dos servidores.
+Desenvolver uma aplicação web centralizada, eficiente e segura para a gestão de microterritorização, permitindo:
+- **Resolução de Conflitos Geográficos:** Mapeamento exato por faixas numéricas (par/ímpar) eliminando os erros de distâncias e unidades trocadas.
+- **Consulta Ágil e Confiável:** Atendimento rápido para recepção e suporte à população.
+- **Gestão Descentralizada por Unidade:** Autonomia para que cada UBS atualize suas próprias faixas de ruas e microáreas através de um painel administrativo seguro.
 
 ---
 
 ## 🔒 Arquitetura de Segurança e Privacidade (*Privacy by Design*)
-Para proteger a integridade e a privacidade dos Agentes Comunitários de Saúde (ACSs) contra abordagens indevidas ou exposição pública excessiva na internet:
-- **Visão Pública (Anônima):** O cidadão ou recepcionista que pesquisa um endereço visualiza apenas a **UBS de referência** e a **Equipe de Saúde da Família** correspondente. O nome do ACS permanece oculto.
-- **Visão Autenticada (Por Unidade):** Cada UBS possui um login genérico e seguro de acesso restrito (ex: `ubs.nome_da_unidade`). Ao logar, o funcionário tem acesso à informação completa, incluindo o nome do ACS responsável pela microárea.
-- **Painel Administrativo Master:** Controle centralizado para gerenciamento de unidades, credenciais e integridade do banco de dados de ruas.
+Para proteger a integridade dos Agentes Comunitários de Saúde (ACSs) contra exposição excessiva na internet aberta, o sistema opera sob níveis de acesso:
+- **Visão Pública (Anônima):** Qualquer usuário externo na internet que pesquisa um endereço visualiza apenas a **UBS de referência** e a **Equipe de Saúde da Família** correspondente, sem expor dados pessoais na web.
+- **Visão Autenticada (Login por UBS):** Funcionários da recepção e da unidade (que precisam do dado completo para orientar o fluxo interno) utilizam um **login genérico e seguro por UBS** (ex: `ubs.monterey`). Ao logar, a interface é liberada para exibir o **nome do ACS responsável** pela microárea.
+- **Painel Administrativo Master:** Controle centralizado para gerenciamento de unidades, credenciais e integridade do banco de dados.
 
 ---
 
