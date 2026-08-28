@@ -1,7 +1,7 @@
 # Sistema de Microterritorização e Gestão de Equipes de Saúde (UBS)
 
 ## 📌 Contexto e Justificativa
-Este projeto nasceu da vivência prática do desenvolvedor na manutenção e gestão da Atenção Básica de Saúde no município de Sarandi, Paraná. A necessidade surgiu para solucionar um problema crítico enfrentado diariamente na rotina da **UBS Monterey**: a imprecisão na identificação da unidade e da equipe responsável pelo atendimento do cidadão.
+Este projeto nasceu da vivência prática do desenvolvedor na Atenção Básica de Saúde no município de Sarandi, Paraná. A necessidade surgiu para solucionar um problema crítico enfrentado diariamente na rotina da **UBS Monterey**: a imprecisão na identificação da unidade e da equipe responsável pelo atendimento do cidadão.
 
 ### O Problema Operacional
 * **A Falha Geográfica (Google My Maps):** O uso de ferramentas tradicionais de mapas falhava drasticamente na ponta. Um exemplo clássico ocorria na **Rua Ladário, número 600**: o sistema visual do My Maps apontava para a área azul (UBS Monterey), mas na realidade o endereço pertencia à **UBS Oriental**. A imprecisão espacial chegava a **2 quilômetros de desvio**, enviando o paciente para a unidade errada, sobrecarregando equipes incorretas e gerando atritos no atendimento.
